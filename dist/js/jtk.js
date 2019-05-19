@@ -197,5 +197,6 @@ var thaanaKeyboard = {
 var old = window.onload ? window.onload : function() {};
 window.onload = function() {
   old();
+  thaanaKeyboard.defaultKeyboard = 'phonetic';
   thaanaKeyboard.init();
 };
