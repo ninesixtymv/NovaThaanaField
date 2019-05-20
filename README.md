@@ -1,4 +1,4 @@
-# A thaana field for Nova apps
+# Thaana fields for Nova apps
 
 This package contains a Nova field to add Thaana Field to resources. Under the hood it uses the [jawish/jtk](https://github.com/jawish/jtk).
 
