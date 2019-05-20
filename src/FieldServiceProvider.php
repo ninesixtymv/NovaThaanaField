@@ -16,7 +16,7 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-thaana-field-jtk', __DIR__ . '/../dist/js/jtk.min.js');
+            Nova::script('nova-thaana-field-jtk', __DIR__ . '/../dist/js/jtk.js');
             Nova::script('nova-thaana-field', __DIR__ . '/../dist/js/field.js');
             Nova::style('nova-thaana-field', __DIR__ . '/../dist/css/field.css');
         });
