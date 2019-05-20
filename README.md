@@ -12,122 +12,56 @@ composer require ninesixtymv/nova-thaana-field
 
 ## Usage
 
-To make an Eloquent model taggagle add the `\Cartalyst\Tags\TaggableTrait` trait and implement the `\Cartalyst\Tags\TaggableInterface` interface:
+#### Text
 
-```php
-use Cartalyst\Tags\TaggableTrait;
-use Cartalyst\Tags\TaggableInterface;
-use Illuminate\Database\Eloquent\Model;
-
-class BlogPost extends Model implements TaggableInterface
-{
-    use TaggableTrait;
-    
-    ...
-}
-```
-
-Next you can use the `PalauaAndSons\TagsField\Tags` field in your Nova resource:
+To make an Text field support Thaana, you can use the `Ninesixtymv\NovaThaanaField\ThaanaTextField` field in your Nova resource:
 
 ```php
 namespace App\Nova;
 
-use PalauaAndSons\TagsField\Tags;
+use Ninesixtymv\NovaThaanaField\ThaanaTextField;
 
-class BlogPost extends Resource
+class Post extends Resource
 {
-    // ...
-    
-    public function fields(Request $request)
-    {
-        return [
-            // ...
-            
-            Tags::make('Tags'),
+  // ...
 
-            // ...
-        ];
-    }
-}
-```
-
-Now you can view and add tags on the blog posts screen in your Nova app. 
-
-## Limiting suggestions
-
-By default a tags field will display a maximum of 5 suggestions when typing into it. If you don't want to display any suggestions, tag on `withoutSuggestions()`.
-
-```php
-Tags::make('Tags')->withoutSuggestions(),
-```
-
-You can change the number of suggestions with `limitSuggestions()`.
-
-```php
-Tags::make('Tags')->limitSuggestions($maxNumberOfSuggestions),
-```
-
-## Allowing only one tag
-
-If the user is only allowed to select one tag for your resource you can call the `single` method.
-
-```php
-// in your Nova resource
-
-public function fields(Request $request)
-{
+  public function fields(Request $request)
+  {
     return [
-        // ...
-        
-        Tags::make('Tags')->single(),
+      // ...
 
-        // ...
+      ThaanaTextField::make('Title'),
+
+      // ...
     ];
+  }
 }
 ```
 
-The field will be rendered as a select form element. It will be populated by the names of the tags already saved.
+#### Textarea
 
-## Working with tags
-
-For more info on how to work with the saved tags, head over to [the docs of cartalyst/tags](https://cartalyst.com/manual/tags#usage).
-
-## Administering tags in Nova
-
-If you want to perform crud actions on the save tags, just create a Nova resource for it. Here's an example.
+To make an Textarea field support Thaana, you can use the `Ninesixtymv\NovaThaanaField\ThaanaTextareaField` field in your Nova resource:
 
 ```php
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Cartalyst\Tags\IlluminateTag as TagModel;
+use Ninesixtymv\NovaThaanaField\ThaanaTextField;
 
-class Tag extends Resource
+class Post extends Resource
 {
-    public static $model = TagModel::class;
+  // ...
 
-    public static $title = 'name';
+  public function fields(Request $request)
+  {
+    return [
+      // ...
 
-    public static $search = [
-        'name',
+      ThaanaTextareaField::make('Description'),
+
+      // ...
     ];
-
-    public function fields(Request $request)
-    {
-        return [
-            Text::make('Namespace')->sortable()->hideWhenUpdating(),
-            Text::make('Name')->sortable(),
-            Text::make('Slug')->sortable(),
-        ];
-    }
+  }
 }
-```
-
-### Testing
-
-``` bash
-phpunit
 ```
 
 ### Changelog
@@ -140,15 +74,13 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email isern@palauaandsons.com instead of using the issue tracker.
+If you discover any security related issues, please create an issue.
 
 ## Credits
 
-- [Freek Van der Herten](https://github.com/freekmurze)
-- [Spatie](https://spatie.be)
-- [Isern Palaus](https://github.com/ipalaus)
+- [Jawish Hameed](https://github.com/jawish)
 
-The Vue components that render the tags are based upon the tag Vue components created by [Adam Wathan](https://twitter.com/adamwathan) as shown in [his excellent Advanced Vue Component Design course](https://adamwathan.me/advanced-vue-component-design/).
+The javascript that enable Thaana in the fields is based on the [JTK](https://github.com/jawish/jtk) package created by [Jawish Hameed](https://github.com/jawish)
 
 ## License
 
