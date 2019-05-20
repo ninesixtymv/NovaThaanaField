@@ -1,6 +1,6 @@
 <?php
 
-namespace Ninesixtymv\NovaDhivehiField;
+namespace Ninesixtymv\NovaThaanaField;
 
 use Laravel\Nova\Fields\Field;
 

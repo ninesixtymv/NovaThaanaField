@@ -1,6 +1,6 @@
 <?php
 
-namespace Ninesixtymv\NovaDhivehiField;
+namespace Ninesixtymv\NovaThaanaField;
 
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
