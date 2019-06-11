@@ -10,7 +10,7 @@
         v-model="value"
       >-->
       <textarea
-        class="w-full form-control form-input form-input-bordered py-3 h-auto text-right thaanaKeyboardInput"
+        class="w-full form-control form-input form-input-bordered py-3 h-auto text-right"
         :id="field.attribute"
         :dusk="field.attribute"
         v-model="value"
@@ -51,11 +51,6 @@ export default {
   }
 };
 </script>
-<style scoped>
-/* .thaanaKeyboardInput {
-  font-family: faruma, "mv iyyu nala", "mv elaaf normal";
-  direction: rtl;
-} */
-</style>
+
 
 
