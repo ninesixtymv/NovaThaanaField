@@ -9,8 +9,8 @@ export default {
 </script>
 
 <style scoped>
-.dhivehi {
+/* .dhivehi {
   text-align: right;
   direction: rtl;
-}
+} */
 </style>

@@ -4,7 +4,7 @@
       <input
         :id="field.name"
         type="text"
-        class="w-full form-control form-input form-input-bordered text-right thaanaKeyboardInput"
+        class="w-full form-control form-input form-input-bordered text-right"
         :class="errorClasses"
         :placeholder="field.name"
         v-model="value"
